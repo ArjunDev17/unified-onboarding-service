@@ -2,13 +2,9 @@ package com.codeNeeTi.onboarding.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-/**
- * DTO for login request.
- */
+/** DTO for login request. */
 public class LoginRequest {
-    @NotBlank
-    public String username;
+  @NotBlank public String username;
 
-    @NotBlank
-    public String password;
+  @NotBlank public String password;
 }

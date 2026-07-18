@@ -12,25 +12,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/register")
 public class RegistrationController {
 
-    private final UserService userService;
+  private final UserService userService;
 
-    public RegistrationController(UserService userService) {
-        this.userService = userService;
-    }
+  public RegistrationController(UserService userService) {
+    this.userService = userService;
+  }
 
-    @PostMapping
-    public ResponseEntity<ApiResponse<AppUser>> register(
-            @Valid @RequestBody RegisterRequest req) {
+  @PostMapping
+  public ResponseEntity<ApiResponse<AppUser>> register(@Valid @RequestBody RegisterRequest req) {
 
-        AppUser user = userService.register(req);
+    AppUser user = userService.register(req);
 
-        ApiResponse<AppUser> response =
-                new ApiResponse<>(
-                        true,
-                        "User registered successfully",
-                        user
-                );
+    ApiResponse<AppUser> response = new ApiResponse<>(true, "User registered successfully", user);
 
-        return ResponseEntity.ok(response);
-    }
+    return ResponseEntity.ok(response);
+  }
 }
