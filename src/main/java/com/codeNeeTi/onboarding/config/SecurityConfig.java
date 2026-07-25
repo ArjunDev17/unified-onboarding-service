@@ -10,77 +10,81 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.*;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-/**
- * Basic Spring Security configuration using DaoAuthenticationProvider and Bcrypt. JWT filter can be
- * plugged here to secure endpoints.
- */
 @Configuration
 public class SecurityConfig {
 
-  private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
-  public SecurityConfig(UserRepository userRepository) {
-    this.userRepository = userRepository;
-  }
+    public SecurityConfig(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-  @Bean
-  public UserDetailsService userDetailsService() {
-    // load user by username from DB
-    return username -> {
-      AppUser user =
-          userRepository
-              .findByUsername(username)
-              .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-      // Map AppUser -> Spring Security UserDetails (no roles for now)
-      return User.builder()
-          .username(user.getUsername())
-          .password(user.getPassword())
-          .disabled(!user.isEnabled())
-          .authorities(Collections.emptyList())
-          .build();
-    };
-  }
+    /**
+     * Loads user details from the database.
+     */
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return username -> {
+            AppUser user = userRepository
+                    .findByUsername(username)
+                    .orElseThrow(() ->
+                            new UsernameNotFoundException(
+                                    "User not found with username: " + username));
 
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    return new BCryptPasswordEncoder();
-  }
+            return User.builder()
+                    .username(user.getUsername())
+                    .password(user.getPassword())
+                    .disabled(!user.isEnabled())
+                    .authorities(Collections.emptyList())
+                    .build();
+        };
+    }
 
-  @Bean
-  public AuthenticationManager authenticationManager(
-      UserDetailsService uds, PasswordEncoder encoder) {
-    DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-    provider.setUserDetailsService(uds);
-    provider.setPasswordEncoder(encoder);
-    return new ProviderManager(provider);
-  }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-  @Bean
-  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    @Bean
+    public AuthenticationManager authenticationManager(
+            UserDetailsService userDetailsService,
+            PasswordEncoder passwordEncoder) {
 
-    http.csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests(
-            auth ->
-                auth
-                    // allow registration without authentication
-                    .requestMatchers("/api/register", "/api/register/**")
-                    .permitAll()
-                    // allow login without authentication
-                    .requestMatchers("/api/auth/**")
-                    .permitAll()
-                    // allow actuator
-                    .requestMatchers("/actuator/**")
-                    .permitAll()
-                    // everything else must be authenticated
-                    .anyRequest()
-                    .authenticated())
-        .httpBasic(Customizer.withDefaults());
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder);
 
-    return http.build();
-  }
+        return new ProviderManager(provider);
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+
+                        // Public APIs
+                        .requestMatchers(
+                                "/api/register/**",
+                                "/api/auth/**",
+                                "/api/v1/forms/**",
+                                "/actuator/**"
+                        ).permitAll()
+
+                        // All other APIs require authentication
+                        .anyRequest()
+                        .authenticated()
+                )
+                .httpBasic(Customizer.withDefaults());
+
+        return http.build();
+    }
 }
