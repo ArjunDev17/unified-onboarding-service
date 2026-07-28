@@ -31,7 +31,7 @@
     <dependencies>
 
         <!-- ========================================================= -->
-        <!-- 🟦 SPRING WEB: REST APIs, Controllers, JSON serialization -->
+        <!-- SPRING WEB: REST APIs, Controllers, JSON serialization -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,7 +39,7 @@
         </dependency>
 
         <!-- ========================================================= -->
-        <!-- 🔐 SPRING SECURITY: Authentication & Authorization        -->
+        <!-- SPRING SECURITY: Authentication & Authorization        -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,7 +47,7 @@
         </dependency>
 
         <!-- ========================================================= -->
-        <!-- 🟨 SPRING DATA JPA: ORM + Hibernate                       -->
+        <!-- SPRING DATA JPA: ORM + Hibernate                       -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,7 +55,7 @@
         </dependency>
 
         <!-- ========================================================= -->
-        <!-- 🟩 VALIDATION: DTO validation using @Valid, @NotNull etc. -->
+        <!-- VALIDATION: DTO validation using @Valid, @NotNull etc. -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,7 +81,7 @@
         </dependency>
 
         <!-- ========================================================= -->
-        <!-- 🐬 MYSQL DRIVER                                          -->
+        <!-- MYSQL DRIVER                                          -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>com.mysql</groupId>
@@ -89,7 +89,7 @@
         </dependency>
 
         <!-- ========================================================= -->
-        <!-- 🚀 FLYWAY: Database migration                             -->
+        <!-- FLYWAY: Database migration                             -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>org.flywaydb</groupId>
@@ -97,7 +97,7 @@
         </dependency>
 
         <!-- ========================================================= -->
-        <!-- 💡 LOMBOK: Reduce boilerplate code                        -->
+        <!-- LOMBOK: Reduce boilerplate code                        -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -151,7 +151,7 @@
         <plugins>
 
             <!-- ========================================================= -->
-            <!-- 🚀 SPRING BOOT STARTER PLUGIN                            -->
+            <!--  SPRING BOOT STARTER PLUGIN                            -->
             <!-- ========================================================= -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -159,7 +159,7 @@
             </plugin>
 
             <!-- ========================================================= -->
-            <!-- 📊 JACOCO – Code Coverage                                 -->
+            <!-- JACOCO – Code Coverage                                 -->
             <!-- ========================================================= -->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -198,7 +198,7 @@
             </plugin>
 
             <!-- ========================================================= -->
-            <!-- 🧼 SPOTLESS – Auto Format Code                            -->
+            <!-- SPOTLESS – Auto Format Code                            -->
             <!-- ========================================================= -->
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
@@ -242,7 +242,7 @@
             </plugin>
 
             <!-- ========================================================= -->
-            <!-- 🪲 PMD – Detect Code Smells & Bugs                       -->
+            <!-- PMD – Detect Code Smells & Bugs                       -->
             <!-- ========================================================= -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -262,7 +262,7 @@
             </plugin>
 
             <!-- ========================================================= -->
-            <!-- 🧪 SUREFIRE – Unit Testing (JUnit5)                       -->
+            <!-- SUREFIRE – Unit Testing (JUnit5)                       -->
             <!-- ========================================================= -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -274,7 +274,7 @@
             </plugin>
 
             <!-- ========================================================= -->
-            <!-- 🧪 FAILSAFE – Integration Testing                         -->
+            <!-- FAILSAFE – Integration Testing                         -->
             <!-- ========================================================= -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -291,7 +291,7 @@
             </plugin>
 
             <!-- ========================================================= -->
-            <!-- 🔍 SONARQUBE – Code Quality Scanner                       -->
+            <!-- SONARQUBE – Code Quality Scanner                       -->
             <!-- ========================================================= -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
