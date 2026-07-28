@@ -6,10 +6,10 @@ spring:
     name: onboarding-service
 
   datasource:
-    url: jdbc:mysql://localhost:3306/onboarding_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:postgresql://codeneeti-db.c7aquo0qcu13.ap-south-1.rds.amazonaws.com:5432/postgres
     username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: codeneeti
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     show-sql: true

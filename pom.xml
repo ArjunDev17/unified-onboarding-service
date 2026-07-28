@@ -107,7 +107,7 @@
         </dependency>
 
         <!-- ========================================================= -->
-        <!-- 🔬 TESTCONTAINERS for DB Integration Tests                -->
+        <!-- TESTCONTAINERS for DB Integration Tests                -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>org.testcontainers</groupId>
@@ -131,7 +131,7 @@
         </dependency>
 
         <!-- ========================================================= -->
-        <!-- 🧪 SPRING BOOT TESTING SUPPORT                            -->
+        <!--SPRING BOOT TESTING SUPPORT                            -->
         <!-- ========================================================= -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -142,6 +142,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
 
@@ -220,7 +230,7 @@
             </plugin>
 
             <!-- ========================================================= -->
-            <!-- 🧹 CHECKSTYLE – Code Quality Rules                        -->
+            <!-- CHECKSTYLE – Code Quality Rules                        -->
             <!-- ========================================================= -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
