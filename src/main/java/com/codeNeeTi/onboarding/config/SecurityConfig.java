@@ -76,6 +76,7 @@ public class SecurityConfig {
                                 "/api/register/**",
                                 "/api/auth/**",
                                 "/api/v1/forms/**",
+                                "/api/v1/onboarding/**",
                                 "/actuator/**"
                         ).permitAll()
 
