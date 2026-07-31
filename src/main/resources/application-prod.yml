@@ -7,7 +7,7 @@ spring:
 
   datasource:
     url: jdbc:postgresql://codeneeti-db.c7aquo0qcu13.ap-south-1.rds.amazonaws.com:5432/postgres
-    username: root
+    username: postgres
     password: codeneeti
     driver-class-name: org.postgresql.Driver
 
