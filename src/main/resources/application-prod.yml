@@ -37,3 +37,12 @@ application:
   name: Onboarding Service
   version: 1.0.0
   description: Generic Configurable Onboarding Platform
+
+logging:
+  level:
+    root: INFO
+    com.codeNeeTi.onboarding: INFO
+    org.springframework.security: WARN
+
+
+#    SPRING_PROFILES_ACTIVE=local ./mvnw spring-boot:run
