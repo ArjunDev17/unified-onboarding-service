@@ -37,3 +37,9 @@ application:
   name: Onboarding Service
   version: 1.0.0
   description: Generic Configurable Onboarding Platform
+
+logging:
+  level:
+    root: INFO
+    com.codeNeeTi.onboarding: DEBUG
+    org.springframework.security: INFO

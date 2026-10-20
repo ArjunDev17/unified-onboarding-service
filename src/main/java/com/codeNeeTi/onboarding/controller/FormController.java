@@ -1,4 +1,3 @@
 package com.codeNeeTi.onboarding.controller;
 
-public class FormController {
-}
+public class FormController {}

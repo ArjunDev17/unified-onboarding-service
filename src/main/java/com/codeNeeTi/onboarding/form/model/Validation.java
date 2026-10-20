@@ -11,34 +11,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Validation {
 
-    /**
-     * Minimum length.
-     */
-    private Integer minLength;
+  /** Minimum length. */
+  private Integer minLength;
 
-    /**
-     * Maximum length.
-     */
-    private Integer maxLength;
+  /** Maximum length. */
+  private Integer maxLength;
 
-    /**
-     * Minimum numeric value.
-     */
-    private Integer minValue;
+  /** Minimum numeric value. */
+  private Integer minValue;
 
-    /**
-     * Maximum numeric value.
-     */
-    private Integer maxValue;
+  /** Maximum numeric value. */
+  private Integer maxValue;
 
-    /**
-     * Regular expression.
-     */
-    private String regex;
+  /** Regular expression. */
+  private String regex;
 
-    /**
-     * Validation message.
-     */
-    private String message;
-
+  /** Validation message. */
+  private String message;
 }
