@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b987983d-0e22-4c45-819f-49a62a9bbef1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codeNeeTi/onboarding/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codeNeeTi/onboarding/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codeNeeTi/onboarding/dto/ApiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codeNeeTi/onboarding/dto/ApiResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/onboarding-service.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/onboarding-service.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/dynamic-form-engine",
+    "git-widget-placeholder": "centrailzedLogs",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/arjunsingh/Desktop/java-All/onboarding-service/pom.xml",
     "project.structure.last.edited": "Project",
@@ -60,9 +58,10 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="com.codeNeeTi.onboarding.OnboardingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="OnboardingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.codeNeeTi.onboarding.OnboardingApplication" />
       <module name="onboarding-service" />
+      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=prod" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.onboarding.*" />
@@ -75,7 +74,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.codeNeeTi.onboarding.OnboardingApplication" />
+        <item itemvalue="Application.OnboardingApplication" />
       </list>
     </recent_temporary>
   </component>

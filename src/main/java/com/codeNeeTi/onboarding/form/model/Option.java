@@ -11,14 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Option {
 
-    /**
-     * Value stored in database.
-     */
-    private String value;
+  /** Value stored in database. */
+  private String value;
 
-    /**
-     * Value displayed on UI.
-     */
-    private String label;
-
+  /** Value displayed on UI. */
+  private String label;
 }

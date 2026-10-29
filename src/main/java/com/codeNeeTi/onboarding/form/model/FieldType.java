@@ -1,35 +1,33 @@
 package com.codeNeeTi.onboarding.form.model;
 
 public enum FieldType {
+  TEXT,
 
-    TEXT,
+  TEXTAREA,
 
-    TEXTAREA,
+  EMAIL,
 
-    EMAIL,
+  PASSWORD,
 
-    PASSWORD,
+  PHONE,
 
-    PHONE,
+  MOBILE,
 
-    MOBILE,
+  NUMBER,
 
-    NUMBER,
+  DATE,
 
-    DATE,
+  TIME,
 
-    TIME,
+  DATETIME,
 
-    DATETIME,
+  DROPDOWN,
 
-    DROPDOWN,
+  RADIO,
 
-    RADIO,
+  CHECKBOX,
 
-    CHECKBOX,
+  FILE,
 
-    FILE,
-
-    IMAGE
-
+  IMAGE
 }

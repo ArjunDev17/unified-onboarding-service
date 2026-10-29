@@ -1,4 +1,3 @@
 package com.codeNeeTi.onboarding.form.provider;
 
-public class VendorOnboardingFormProvider {
-}
+public class VendorOnboardingFormProvider {}

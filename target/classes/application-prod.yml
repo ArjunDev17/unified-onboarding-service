@@ -1,0 +1,48 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: onboarding-service
+
+  datasource:
+    url: jdbc:postgresql://codeneeti-db.c7aquo0qcu13.ap-south-1.rds.amazonaws.com:5432/postgres
+    username: postgres
+    password: codeneeti
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  flyway:
+    enabled: false
+
+# ----------------------------------------------------
+# JWT CONFIGURATION
+# ----------------------------------------------------
+app:
+  jwt:
+    secret: "JH7d9w3h9HD92jDd92hD9s0Fjs92KfmA8shQ92mshQ82jsmA92jsmQ82jdmS8"
+    expiration-ms: 3600000   # 1 hour in milliseconds
+
+# ----------------------------------------------------
+# APPLICATION INFORMATION
+# ----------------------------------------------------
+application:
+  name: Onboarding Service
+  version: 1.0.0
+  description: Generic Configurable Onboarding Platform
+
+logging:
+  level:
+    root: INFO
+    com.codeNeeTi.onboarding: INFO
+    org.springframework.security: WARN
+
+
+#    SPRING_PROFILES_ACTIVE=local ./mvnw spring-boot:run

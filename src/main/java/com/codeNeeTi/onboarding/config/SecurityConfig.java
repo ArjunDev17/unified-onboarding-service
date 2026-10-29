@@ -20,71 +20,65 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    public SecurityConfig(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+  public SecurityConfig(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-    /**
-     * Loads user details from the database.
-     */
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return username -> {
-            AppUser user = userRepository
-                    .findByUsername(username)
-                    .orElseThrow(() ->
-                            new UsernameNotFoundException(
-                                    "User not found with username: " + username));
+  /** Loads user details from the database. */
+  @Bean
+  public UserDetailsService userDetailsService() {
+    return username -> {
+      AppUser user =
+          userRepository
+              .findByUsername(username)
+              .orElseThrow(
+                  () -> new UsernameNotFoundException("User not found with username: " + username));
 
-            return User.builder()
-                    .username(user.getUsername())
-                    .password(user.getPassword())
-                    .disabled(!user.isEnabled())
-                    .authorities(Collections.emptyList())
-                    .build();
-        };
-    }
+      return User.builder()
+          .username(user.getUsername())
+          .password(user.getPassword())
+          .disabled(!user.isEnabled())
+          .authorities(Collections.emptyList())
+          .build();
+    };
+  }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
-    @Bean
-    public AuthenticationManager authenticationManager(
-            UserDetailsService userDetailsService,
-            PasswordEncoder passwordEncoder) {
+  @Bean
+  public AuthenticationManager authenticationManager(
+      UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
 
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(passwordEncoder);
+    DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+    provider.setUserDetailsService(userDetailsService);
+    provider.setPasswordEncoder(passwordEncoder);
 
-        return new ProviderManager(provider);
-    }
+    return new ProviderManager(provider);
+  }
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+  @Bean
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
+    http.csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(
+            auth ->
+                auth
 
-                        // Public APIs
-                        .requestMatchers(
-                                "/api/register/**",
-                                "/api/auth/**",
-                                "/api/v1/forms/**",
-                                "/actuator/**"
-                        ).permitAll()
+                    // Public APIs
+                    .requestMatchers(
+                        "/api/register/**", "/api/auth/**", "/api/v1/forms/**", "/actuator/**")
+                    .permitAll()
 
-                        // All other APIs require authentication
-                        .anyRequest()
-                        .authenticated()
-                )
-                .httpBasic(Customizer.withDefaults());
+                    // All other APIs require authentication
+                    .anyRequest()
+                    .authenticated())
+        .httpBasic(Customizer.withDefaults());
 
-        return http.build();
-    }
+    return http.build();
+  }
 }
